@@ -1,0 +1,72 @@
+ const handleAddTask = () => {
+    if (taskText.trim()) {
+      if (editIndex !== null) {
+        const updatedTask = { ...tasks[editIndex], text: taskText };
+        const updatedTasks = [...tasks];
+        updatedTasks[editIndex] = updatedTask;
+
+       
+        axios.put(`http://localhost:6000/UpdateTask/${updatedTask.id}`, updatedTask)
+          .then(() => {
+            setTasks(updatedTasks);
+            setEditIndex(null);
+            setTaskText('');
+            updateCompletedTasks(updatedTasks);
+          })
+          .catch((error) => {
+            console.error('Error updating task:', error);
+          });
+
+      } else {
+        const newTask = { text: taskText, completed: false };
+        
+ const handleAddTask = () => {
+    if (taskText.trim()) {
+      if (editIndex !== null) {
+        const updatedTask = { ...tasks[editIndex], text: taskText };
+        const updatedTasks = [...tasks];
+        updatedTasks[editIndex] = updatedTask;
+
+        // Send PUT request to update the task in the backend
+        axios.put(`http://localhost:6000/UpdateTask/${updatedTask.id}`, updatedTask)
+          .then(() => {
+            setTasks(updatedTasks);
+            setEditIndex(null);
+            setTaskText('');
+            updateCompletedTasks(updatedTasks);
+          })
+          .catch((error) => {
+            console.error('Error updating task:', error);
+          });
+
+      } else {
+        const newTask = { text: taskText, completed: false };
+
+        // Send POST request to add the new task to the backend
+        axios.post('http://localhost:6000/AddTask', newTask)
+          .then((response) => {
+            setTasks([...tasks, response.data]);
+            setTaskText('');
+            updateCompletedTasks([...tasks, response.data]);
+          })
+          .catch((error) => {
+            console.error('Error adding task:', error);
+          });
+      }
+    }
+  };
+
+      // Send PUT request to update the task in the backend
+        axios.put(`http://localhost:6000/UpdateTask/${updatedTask.id}`, updatedTask)
+          .then(() => {
+            setTasks(updatedTasks);
+            setEditIndex(null);
+            setTaskText('');
+            updateCompletedTasks(updatedTasks);
+          })
+          .catch((error) => {
+            console.error('Error updating task:', error);
+          });
+
+      } else {
+        const newTask = { text: taskText, completed: false };
