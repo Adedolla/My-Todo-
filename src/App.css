@@ -1,11 +1,14 @@
 .App{
   text-align: center;
+ 
 }
+
 .task{
+  background-color: bisque;
  height: auto;
  width: 500px;
  /* border: 1px solid black; */
- box-shadow: 0px 5px 10px  #00000085;
+ box-shadow: 0px 5px 10px goldenrod;
  margin: auto;
  padding: 1rem;
 }
