@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { Dropdown, DropdownButton } from 'react-bootstrap';
+
 
 const Task = () => {
-    const BackendURL = 'http://localhost:7000';
+    const BackendURL = 'http://localhost:8000';
 
     const [tasks, setTasks] = useState([]);
     const [name, setName] = useState('');
